@@ -1,5 +1,8 @@
 from django.db import models
 
+# Create your models here.
+from django.db import models
+
 class Activity(models.Model):
     user = models.CharField(max_length=100)
     activity_type = models.CharField(max_length=50)
@@ -19,3 +22,7 @@ class Activity(models.Model):
 
     def __str__(self):
         return f"{self.user} - {self.activity_type} ({self.status})"
+from django.db import models
+
+# Create your models here.
+
