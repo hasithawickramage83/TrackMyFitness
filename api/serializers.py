@@ -20,8 +20,8 @@ class RegisterSerializer(serializers.ModelSerializer):
         )
         return user
 
-# class ActivitySerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Activity
-#         fields = ['id', 'user', 'activity_type', 'status', 'timestamp']
-#         read_only_fields = ['user', 'timestamp']
+class ActivitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Activity
+        fields = ['id', 'user', 'activity_type', 'status', 'timestamp']
+        read_only_fields = ['user', 'timestamp']
