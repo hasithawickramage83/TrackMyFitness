@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-!m$y2y9s6=y82616e^9o1mcta9%-u$o9i2z=b0ei3jfh(ckvy@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -83,14 +83,24 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.postgresql",
+#         "NAME": os.getenv("POSTGRES_DB", "fitness_track_db"),
+#         "USER": os.getenv("POSTGRES_USER", "postgres"),
+#         "PASSWORD": os.getenv("POSTGRES_PASSWORD", "pass@123"),
+#         "HOST": os.getenv("POSTGRES_HOST", "localhost"),
+#         "PORT": os.getenv("POSTGRES_PORT", "5432"),
+#     }
+# }
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": os.getenv("POSTGRES_DB", "fitness_track_db"),
-        "USER": os.getenv("POSTGRES_USER", "postgres"),
-        "PASSWORD": os.getenv("POSTGRES_PASSWORD", "pass@123"),
-        "HOST": os.getenv("POSTGRES_HOST", "localhost"),
-        "PORT": os.getenv("POSTGRES_PORT", "5432"),
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'fitness_track_db',
+        'USER': 'postgres',
+        'PASSWORD': 'pass@123',
+        'HOST': 'tcp.us-east-1.clawcloudrun.com',  # or 'db' if Django runs in Docker later
+        'PORT': '46653',
     }
 }
 # REST framework + JWT config
