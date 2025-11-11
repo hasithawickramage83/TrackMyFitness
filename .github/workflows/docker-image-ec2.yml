@@ -40,7 +40,7 @@ jobs:
           echo "${{ secrets.EC2_KEY }}" > key.pem
           chmod 600 key.pem
           mkdir -p ~/.ssh
-          # Avoid host key prompt on first connect
+          # Avoid host key prompt on first connect test
           printf "Host *\n\tStrictHostKeyChecking no\n" > ~/.ssh/config
 
       - name: Deploy on EC2
