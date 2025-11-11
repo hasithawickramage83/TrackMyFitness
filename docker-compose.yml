@@ -1,15 +1,16 @@
 services:
-  db:
-    image: postgres:latest
-    container_name: myfitness-postgres-container
-    environment:
-      POSTGRES_DB: fitness_track_db
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: "pass@123"
+  web:
+    build: .
+    container_name: django_app
+    command: python manage.py runserver 0.0.0.0:8000
     ports:
-      - "5432:5432"
+      - "8000:8000"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - .:/app
+    env_file:
+      - .env
+    networks:
+      - django_net
 
-volumes:
-  postgres_data:
+networks:
+  django_net:
